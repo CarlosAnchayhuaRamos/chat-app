@@ -6,6 +6,8 @@ import { ChatModule } from './chat/chat.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { User } from './users/entities/user.entity';
+import { MessageModule } from './message/message.module';
+import { Message } from './message/entities/message.entity';
 
 @Module({
   imports: [
@@ -16,12 +18,13 @@ import { User } from './users/entities/user.entity';
       username: 'postgres',
       password: 'password',
       database: 'nest_db',
-      entities: [User],
+      entities: [User, Message],
       synchronize: true,
     }),
     ChatModule,
     UsersModule,
-    AuthModule
+    AuthModule,
+    MessageModule
   ],
   controllers: [AppController],
   providers: [AppService],
